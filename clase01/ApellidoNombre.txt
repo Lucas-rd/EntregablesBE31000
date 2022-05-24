@@ -10,7 +10,8 @@ class Usuario{
     }
 
     addMascota(newPet){
-        return this.mascotas.push(newPet)
+        this.mascotas.push(newPet)
+        console.log(this.mascotas)
     }
     
     countMascotas(){
@@ -37,7 +38,7 @@ console.log(usuario1.getFullName())
 
 //Probamos el metodo de contar mascotas, luego agrego una y vuelvo a contar:
 console.log(usuario1.countMascotas())
-consle.log(usuario1.addMascota("Simba"))
+usuario1.addMascota("Simba");
 console.log(usuario1.countMascotas())
 
 //Pruebo agregar dos libros y luego cuento usando el metodo de getBookNames declarado dentro de la clase.
