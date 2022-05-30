@@ -27,9 +27,9 @@ class Contenedor{
             let searchId = parseProducts.find(element => element.id == id)
 
             if(searchId){
-                return console.log(`El producto con el id ${id} es:`, searchId)
+                return searchId
             } else {
-                console.log(null)
+                return null
             }
         }catch (error){
             console.log(`Ocurrio un error al leer archivo. El error fue: ${error}`)
@@ -40,7 +40,7 @@ class Contenedor{
         try {
             let productos = await fs.promises.readFile(`./${this.nombreArchivo}`, 'utf-8')
             const parseProducts = JSON.parse(productos)
-            return console.log(`Estos son todos los productos en stock: `, parseProducts)
+            return parseProducts
         } catch (error) {
             console.log(`Ocurrio un error al leer archivo. El error fue: ${error}`)
         }
@@ -104,11 +104,21 @@ archivo.save({
     thumbnail: "https://www.elrincondemagic.com/WebRoot/StoreLES/Shops/64576138/5EA9/426B/6A87/8F3E/696A/0A0C/6D0B/4F50/Mazo_Commander_Ikoria_Ruthless_Regiment_m.png"
 })
 
+archivo.save({
+    title:"Mazo comander 5",
+    price: 500,
+    thumbnail: "https://www.elrincondemagic.com/WebRoot/StoreLES/Shops/64576138/5EA9/426B/6A87/8F3E/696A/0A0C/6D0B/4F50/Mazo_Commander_Ikoria_Ruthless_Regiment_m.png"
+})
+
 // 2 - Buscamos un elemento unico mediante el id con metodo getById:
-//archivo.getById(1)
+// archivo.getById(2).then( res =>{
+//     console.log(res)
+// })
 
 // 3- Buscamos todo el array de objetos con el metodo getAll:
-// archivo.getAll()
+// archivo.getAll().then( res =>{
+//     console.log(res)
+// } )
 
 // 4 - Eliminamos un producto especifico mediante un id con el metodo deleteById:
 // archivo.deleteById(2)
